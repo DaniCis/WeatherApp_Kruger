@@ -4,6 +4,8 @@
 
 > Weather App using UseEffect Hook.
 
+<img src="./src/assets/weather.png" height="300px">
+
 ## Built with 
 
 - HTML + CSS
