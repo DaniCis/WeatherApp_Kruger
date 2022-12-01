@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/esm/Container';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
  
-const WeatherInfo = ({weather}) => {
+const WeatherInfo = ({ weather }) => {
     const [degrees,setDegrees] = useState(true)
     const date = weather?.location.localtime
     const time = date.split(' ')
@@ -65,4 +65,5 @@ const WeatherInfo = ({weather}) => {
         </Container>
     )
 }
+
 export default WeatherInfo;

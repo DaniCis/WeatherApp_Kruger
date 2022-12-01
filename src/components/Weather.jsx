@@ -5,29 +5,39 @@ import Col from "react-bootstrap/esm/Col";
 import WeatherSearchForm from "./WeatherSearchForm";
 import WeatherInfo from "./WeatherInfo";
 import Loading from "./Loading";
+import NoResults from "./NoResults";
 
 const Weather = () => {
     const [weather,setWeather] = useState(null)
+    const [error, setError] = useState(false)
+    const [city,setCity] = useState('')
+
     useEffect( () => {
         loadInfo()
     },[])
 
     useEffect( () => {
-        document.title = `Weather | ${weather?.location.name ?? '' }`
+        document.title = `Weather | ${weather?.location.name ?? 'App' }`
     },[weather])
 
     const loadInfo = async (city = 'quito') =>{
         try{
             const response = await fetch(`${process.env.REACT_APP_URL}&key=${process.env.REACT_APP_KEY}&q=${city}`)
-            const responseJSON = await response.json()
-            setTimeout(() => {
-                setWeather(responseJSON);
-            }, 1000);
+            if(response.ok){
+                const responseJSON = await response.json()
+                setError(false)
+                setTimeout(() => {
+                    setWeather(responseJSON);
+                }, 1000);
+            }else
+                setError(true)
+            
         }catch(e){
             console.log(e)
         }
     }
     const handleChangeCity = (city) =>{
+        setCity(city)
         setWeather(null)
         loadInfo(city)
     }
@@ -44,9 +54,11 @@ const Weather = () => {
             </Row>
             <Row className="contenedorInfo">
                 <Col  xs={{span:10,offset:1}} md={{span:8,offset:2}} lg={{span:8,offset:3}} xl={{span:6,offset:3}}>
-                    {weather 
-                        ? <WeatherInfo weather={weather}/>
-                        : <Loading />
+                    {!error
+                        ? ( weather 
+                            ? <WeatherInfo weather={weather}/> 
+                            : <Loading />  )
+                        : <NoResults city={city} /> 
                     }
                 </Col>
             </Row>

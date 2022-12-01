@@ -3,6 +3,13 @@ body{
     background: url(https://www.pixelstalk.net/wp-content/uploads/2016/07/Free-Download-Weather-Background.jpg) center / cover no-repeat fixed;
     height: 100vh;
 }
+.weatherTitle{
+    font-size: 25px;
+    text-transform: uppercase;
+    margin-top: 25px;
+    font-family: 'Poppins', sans-serif;
+    color:#fff;
+}
 .isNight {
     background-image:url(https://c1.wallpaperflare.com/preview/772/936/900/thunderstorm-flashes-night-weather.jpg);
     background-size: cover;
@@ -10,13 +17,6 @@ body{
 .isDay{
     background-image:url(https://c1.wallpaperflare.com/preview/289/373/247/cloud-sky-blue.jpg);
     background-size: cover;
-}
-.weatherTitle{
-    font-size: 25px;
-    text-transform: uppercase;
-    margin-top: 25px;
-    font-family: 'Poppins', sans-serif;
-    color:#fff;
 }
 .contenedorForm{
     margin: 10px 0 30px;
@@ -66,4 +66,27 @@ span{
     --bs-spinner-width: 6rem!important;
     --bs-spinner-height: 6rem!important;
     --bs-spinner-border-width: 0.5em!important;
+}
+.alert{
+    margin-top: 10px;
+    margin-bottom: 0!important;
+}
+.contenedorNo{
+    margin-top: 50px;
+}
+.tituloNo{
+    text-align: center;
+}
+.tituloNo p{
+    color: white;
+    font-size: 20px;
+    text-transform: capitalize
+}
+.imgNo{
+    display: flex;
+    justify-content: center;
+}
+.imgNo img{
+    width: 100px;
+    height: 100px;
 }
