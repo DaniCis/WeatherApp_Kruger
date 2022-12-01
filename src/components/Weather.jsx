@@ -31,7 +31,6 @@ const Weather = () => {
                 }, 1000);
             }else
                 setError(true)
-            
         }catch(e){
             console.log(e)
         }
